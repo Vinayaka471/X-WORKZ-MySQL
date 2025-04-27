@@ -1,7 +1,3 @@
-create database airlines;
-create database country;
-create database state;
-
 use airlines;
 create table airlines(airline_id int, airline_name varchar(50), country varchar(50), established_year int, fleet_size int);
 alter table airlines add ceo varchar(50);
@@ -120,3 +116,93 @@ insert into state_info values(20, 'Goa', 'India', 1800000, 2, 'Panaji', 'Konkani
 select*from state_info;
 
 
+update airlines set ceo='New CEO 1' where airline_id=1;
+update airlines set ceo='New CEO 2' where airline_id=2;
+update airlines set ceo='New CEO 3' where airline_id=3;
+update airlines set customer_rating='4.7' where airline_id=4;
+update airlines set customer_rating='4.1' where airline_id=5;
+update airlines set headqurters='New Delhi' where airline_id=6;
+update airlines set headqurters='Bangalore' where airline_id=7;
+update airlines set total_fleet=310 where airline_id=8;
+update airlines set total_fleet=280 where airline_id=9;
+update airlines set established_year=2000 where airline_id=10;
+
+select * from airlines;
+
+
+update country_info set language='English-Hindi' where country_id=1;
+update country_info set capital='New York' where country_id=2;
+update country_info set population=70000000 where country_id=3;
+update country_info set population=85000000 where country_id=4;
+update country_info set currency='FRF' where country_id=5;
+update country_info set domain='.jp.com' where country_id=6;
+update country_info set name='People Republic of China' where country_id=7;
+update country_info set continent='America' where country_id=8;
+update country_info set capital='Rio de Janeiro' where country_id=9;
+update country_info set domain='.ru.org' where country_id=10;
+
+use state;
+update state_info set capital='Mysuru' where state_id=1;
+update state_info set language='Hindi-Marathi' where state_id=2;
+update state_info set total_districts=40 where state_id=3;
+update state_info set population=40000000 where state_id=4;
+update state_info set name='Gujarat State' where state_id=5;
+update state_info set country='Bharat' where state_id=6;
+update state_info set established_year=1957 where state_id=7;
+update state_info set language='Bengali-English' where state_id=8;
+update state_info set capital='Gaya' where state_id=9;
+update state_info set established_year=1951 where state_id=10;
+
+select * from state_info;
+
+
+use airlines;
+delete from airlines where airline_id=20;
+delete from airlines where country='UAE' and customer_rating='4.6';
+delete from airlines where total_fleet<50 or established_year>2018;
+delete from airlines where airline_id in (11, 12);
+delete from airlines where airline_id not in (1, 2, 3);
+delete from airlines where total_fleet between 100 and 300;
+delete from airlines where established_year not between 1990 and 2010;
+
+delete from country_info where country_id=20;
+delete from country_info where continent='Europe' and population>50000000;
+delete from country_info where currency='INR' or language='Mandarin';
+delete from country_info where country_id in (1, 2);
+delete from country_info where country_id not in (3, 4, 5);
+delete from country_info where population between 20000000 and 70000000;
+delete from country_info where population not between 50000000 and 100000000;
+
+delete from state_info where state_id=20;
+delete from state_info where country='India' and total_districts>30;
+delete from state_info where established_year<1950 or population>80000000;
+delete from state_info where state_id in (1, 2);
+delete from state_info where state_id not in (3, 4, 5);
+delete from state_info where total_districts between 10 and 25;
+delete from state_info where established_year not between 1950 and 2000;
+
+select * from airlines where country='India';
+select * from country_info where continent='Asia';
+select * from state_info where country='India';
+
+select * from airlines where total_fleet>100 and customer_rating='4.5';
+select * from airlines where country='India' or country='UAE';
+select * from airlines where airline_id in (1,2,3);
+select * from airlines where airline_id not in (4,5,6);
+select * from airlines where total_fleet between 50 and 300;
+select * from airlines where established_year not between 1980 and 2000;
+
+select * from country_info where continent='Europe' and population>50000000;
+select * from country_info where currency='USD' or currency='CAD';
+select * from country_info where country_id in (5,6,7);
+select * from country_info where country_id not in (8,9,10);
+select * from country_info where population between 60000000 and 150000000;
+select * from country_info where population not between 70000000 and 120000000;
+
+use state;
+select * from state_info where country='India' and population>50000000;
+select * from state_info where established_year<1960 or total_districts>30;
+select * from state_info where state_id in (1,3,5);
+select * from state_info where state_id not in (2,4,6);
+select * from state_info where total_districts between 20 and 40;
+select * from state_info where population not between 20000000 and 90000000;
