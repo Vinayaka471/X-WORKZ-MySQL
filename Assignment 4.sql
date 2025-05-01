@@ -46,6 +46,7 @@ delete from cars where mileage not between 15 and 22;
 select * from cars
 where brand='Hyundai';
 
+
 select*from cars
 where color='Black';
 
@@ -84,7 +85,7 @@ update cars set transmission = 'Manual' where brand not in ('BMW', 'Audi');
 update cars set price =  2000 where price between 15000 and 25000;
 update cars set mileage = 4 where mileage not between 15 and 22;
 
-
+select*from cars;
 
 
 create database employees;
@@ -247,7 +248,67 @@ update products set  price = price * 0.95 where price between 500 and 1000;
 update products set location = 'Overflow Warehouse' where stock_quantity not between 50 and 200;
 
 
+use employees;
+select*from employees;
+
+select count(*) from employees;
+
+select sum(salary) as total_salary from employees;
+
+select max(Salary) as max_salary from employees;
+
+select min(salary) as min_salary from employees;
+
+select avg(salary) as avg_salary from employees;
+
+select*from employees;
+ 
+	select  first_name,max(salary) from employees
+	where department='IT';
+    
+select first_name,max(salary) as max_sal from employees
+group by department having max_sal>47000;
+
+select designation,min(salary) as min_salary from employees
+group by department having min_salary<58000;
+
+select last_name,max(salary) as max_sal from employees
+group by city having max_sal>45000;
+
+select count(*) from employees;
+
+select sum(salary) from employees;
+
+select count(salary) from employees;
+
+select max(salary) from employees;
+
+select min(salary) from employees;
+
+select avg(salary) from employees;
+
+select department,sum(salary) from employees
+where designation='Analyst';
+
+select first_name ,sum(salary)as sum_sal from employees
+where department='IT' having sum_sal>42000;
+
+select min(salary) from employees; 
+
+select sum(salary) as max_salary from employees;
+
+select max(salary) as max_salary from employees;
+
+select min(salary) as min_salary from employees;
+
+select avg(salary) as avg_salary from employees;
+
+select first_name,max(salary) as max_salary from employees
+group by contact  having max_salary>52000;
 
 
 
 
+select*from employees where first_name like'a%';
+
+select*from employees where last_name like'%e';
