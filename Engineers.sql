@@ -45,3 +45,5 @@ DELETE FROM Engineers
 WHERE name = 'Charlie Brown';
 
 RENAME TABLE Engineers TO TechEngineers;
+
+select*from TechEngineers
