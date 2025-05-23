@@ -243,4 +243,3 @@ INSERT INTO Tasks VALUES
 (29, 29, 29, 29, 29, 'Bot Decision Tree', 'Program investment logic', '2023-02-10 08:00:00', '2023-03-10 18:00:00', 'Ongoing'),
 (30, 30, 30, 30, 30, 'Field Panel Sync', 'Test solar sync algorithms', '2021-12-01 09:00:00', '2022-01-01 17:00:00', 'Completed');
 
-select * from Companies;

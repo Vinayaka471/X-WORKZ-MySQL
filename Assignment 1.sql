@@ -1,6 +1,11 @@
-CREATE DATABASE UniversityDB;
-USE UniversityDB;
+create database Students;
+create database Courses;
+create database Instructors;
+create database Enrollments;
+create database Departments;
 
+
+use Students;
 CREATE TABLE Students (
     student_id INT PRIMARY KEY,
     first_name VARCHAR(50),
@@ -14,6 +19,7 @@ CREATE TABLE Students (
     enrollment_date DATE
 );
 
+use Courses;
 CREATE TABLE Courses (
     course_id INT PRIMARY KEY,
     course_name VARCHAR(100),
@@ -27,6 +33,7 @@ CREATE TABLE Courses (
     level VARCHAR(20)
 );
 
+use Instructors;
 CREATE TABLE Instructors (
     instructor_id INT PRIMARY KEY,
     first_name VARCHAR(50),
@@ -40,6 +47,7 @@ CREATE TABLE Instructors (
     title VARCHAR(50)
 );
 
+use Enrollments;
 CREATE TABLE Enrollments (
     enrollment_id INT PRIMARY KEY,
     student_id INT,
@@ -53,6 +61,7 @@ CREATE TABLE Enrollments (
     feedback TEXT
 );
 
+use Departments;
 CREATE TABLE Departments (
     department_id INT PRIMARY KEY,
     department_name VARCHAR(100),
@@ -66,95 +75,109 @@ CREATE TABLE Departments (
     student_count INT
 );
 
-ALTER TABLE Students 
-    ADD nationality VARCHAR(50),
-    ADD guardian_name VARCHAR(100),
-    ADD guardian_contact VARCHAR(15),
-    ADD blood_group VARCHAR(5);
+use Students;
+ALTER TABLE Students ADD nationality VARCHAR(50);
+ALTER TABLE Students ADD guardian_name VARCHAR(100);
+ALTER TABLE Students ADD guardian_contact VARCHAR(15);
+ALTER TABLE Students ADD blood_group VARCHAR(5);
 
-ALTER TABLE Courses 
-    ADD course_language VARCHAR(50),
-    ADD mode VARCHAR(20),
-    ADD prerequisites TEXT,
-    ADD max_students INT;
+use  Courses;
+ALTER TABLE Courses ADD course_language VARCHAR(50);
+ALTER TABLE Courses ADD mode VARCHAR(20);
+ALTER TABLE Courses ADD prerequisites TEXT;
+ALTER TABLE Courses ADD max_students INT;
 
-ALTER TABLE Instructors 
-    ADD experience_years INT,
-    ADD qualification VARCHAR(100),
-    ADD linkedin_profile VARCHAR(255),
-    ADD research_area VARCHAR(100);
+use Instructors;
+ALTER TABLE Instructors ADD experience_years INT;
+ALTER TABLE Instructors ADD qualification VARCHAR(100);
+ALTER TABLE Instructors ADD linkedin_profile VARCHAR(255);
+ALTER TABLE Instructors ADD research_area VARCHAR(100);
 
-ALTER TABLE Enrollments 
-    ADD attendance_percentage DECIMAL(5,2),
-    ADD midterm_score INT,
-    ADD final_score INT,
-    ADD remarks TEXT;
+use Enrollments;
+ALTER TABLE Enrollments ADD attendance_percentage DECIMAL(5,2);
+ALTER TABLE Enrollments ADD midterm_score INT;
+ALTER TABLE Enrollments ADD final_score INT;
+ALTER TABLE Enrollments ADD remarks TEXT;
 
-ALTER TABLE Departments 
-    ADD vision TEXT,
-    ADD mission TEXT,
-    ADD website VARCHAR(255),
-    ADD accreditation_status VARCHAR(50);
+use Departments;
+ALTER TABLE Departments ADD vision TEXT;
+ALTER TABLE Departments ADD mission TEXT;
+ALTER TABLE Departments ADD website VARCHAR(255);
+ALTER TABLE Departments ADD accreditation_status VARCHAR(50);
 
+use Students;
 ALTER TABLE Students DROP COLUMN blood_group;
+
+use Courses;
 ALTER TABLE Courses DROP COLUMN max_students;
+
+use Instructors;
 ALTER TABLE Instructors DROP COLUMN linkedin_profile;
+
+use Enrollments;
 ALTER TABLE Enrollments DROP COLUMN remarks;
+
+use Departments;
 ALTER TABLE Departments DROP COLUMN accreditation_status;
 
-ALTER TABLE Students 
-    RENAME COLUMN first_name TO fname,
-    RENAME COLUMN last_name TO lname,
-    RENAME COLUMN phone TO contact_number,
-    RENAME COLUMN email TO email_id;
+use Students;
+ALTER TABLE Students RENAME COLUMN  first_name TO fname ;
+ALTER TABLE Students RENAME COLUMN last_name  TO  lname;
+ALTER TABLE Students RENAME COLUMN  phone TO contact_number ;
+ALTER TABLE Students RENAME COLUMN email TO   email_id;
 
-ALTER TABLE Courses 
-    RENAME COLUMN course_name TO name,
-    RENAME COLUMN course_code TO code,
-    RENAME COLUMN instructor TO instructor_name,
-    RENAME COLUMN department TO dept;
+use Courses;
+ALTER TABLE Courses RENAME COLUMN course_name TO name ;
+ALTER TABLE Courses RENAME COLUMN course_code  TO  code;
+ALTER TABLE Courses RENAME COLUMN instructor TO  instructor_name;
+ALTER TABLE Courses RENAME COLUMN department  TO  dept;
 
-ALTER TABLE Instructors 
-    RENAME COLUMN first_name TO fname,
-    RENAME COLUMN last_name TO lname,
-    RENAME COLUMN phone TO contact_number,
-    RENAME COLUMN title TO designation;
+use Instructors;
+ALTER TABLE Instructors RENAME COLUMN first_name TO  fname ;
+ALTER TABLE Instructors RENAME COLUMN   last_name TO lname;
+ALTER TABLE Instructors RENAME COLUMN  phone  TO contact_number;
+ALTER TABLE Instructors RENAME COLUMN  title TO   designation;
 
-ALTER TABLE Enrollments 
-    RENAME COLUMN student_id TO sid,
-    RENAME COLUMN course_id TO cid,
-    RENAME COLUMN fee_paid TO fees_paid,
-    RENAME COLUMN grade TO final_grade;
+use Enrollments;
+ALTER TABLE Enrollments RENAME COLUMN  student_id TO sid;
+ALTER TABLE Enrollments RENAME COLUMN course_id   TO   cid;
+ALTER TABLE Enrollments RENAME COLUMN fee_paid  TO  fees_paid;
+ALTER TABLE Enrollments RENAME COLUMN grade TO   final_grade;
 
--- No need to rename columns in Departments since they already match.
+use Departments;
+ALTER TABLE Departments RENAME COLUMN dept_name  TO   department_name;
+ALTER TABLE Departments RENAME COLUMN  building_name  TO  building ;
+ALTER TABLE Departments RENAME COLUMN  contact_number  TO  phone ;
+ALTER TABLE Departments RENAME COLUMN  email_id  TO  email ;
 
--- Step 6: Modify column types
-ALTER TABLE Students 
-    MODIFY fname VARCHAR(100),
-    MODIFY lname VARCHAR(100),
-    MODIFY age TINYINT,
-    MODIFY email_id VARCHAR(150);
 
-ALTER TABLE Courses 
-    MODIFY name VARCHAR(150),
-    MODIFY code VARCHAR(30),
-    MODIFY duration_weeks SMALLINT,
-    MODIFY credits TINYINT;
 
-ALTER TABLE Instructors 
-    MODIFY fname VARCHAR(100),
-    MODIFY lname VARCHAR(100),
-    MODIFY salary DECIMAL(12,2),
-    MODIFY designation VARCHAR(100);
+use Students;
+ALTER TABLE Students MODIFY  fname VARCHAR(100);
+ALTER TABLE Students MODIFY lname VARCHAR(100);
+ALTER TABLE Students MODIFY age TINYINT;
+ALTER TABLE Students MODIFY email_id VARCHAR(150);
 
-ALTER TABLE Enrollments 
-    MODIFY sid INT UNSIGNED,
-    MODIFY cid INT UNSIGNED,
-    MODIFY attendance_percentage DECIMAL(6,2),
-    MODIFY final_grade VARCHAR(10);
+use Courses;
+ALTER TABLE Courses MODIFY name VARCHAR(150);
+ALTER TABLE Courses MODIFY code VARCHAR(30);
+ALTER TABLE Courses MODIFY duration_weeks SMALLINT;
+ALTER TABLE Courses MODIFY credits TINYINT;
 
-ALTER TABLE Departments 
-    MODIFY department_name VARCHAR(150),
-    MODIFY budget DECIMAL(12,2),
-    MODIFY website VARCHAR(300),
-    MODIFY email VARCHAR(150);
+use Instructors;
+ALTER TABLE Instructors MODIFY fname VARCHAR(100);
+ALTER TABLE Instructors MODIFY lname VARCHAR(100);
+ALTER TABLE Instructors MODIFY salary DECIMAL(12,2);
+ALTER TABLE Instructors MODIFY designation VARCHAR(100);
+
+use Enrollments;
+ALTER TABLE Enrollments MODIFY sid INT UNSIGNED;
+ALTER TABLE Enrollments MODIFY cid INT UNSIGNED;
+ALTER TABLE Enrollments MODIFY attendance_percentage DECIMAL(6,2);
+ALTER TABLE Enrollments MODIFY final_grade VARCHAR(10);
+
+use Departments;
+ALTER TABLE Departments MODIFY department_name VARCHAR(150);
+ALTER TABLE Departments MODIFY budget DECIMAL(12,2);
+ALTER TABLE Departments MODIFY website VARCHAR(300);
+ALTER TABLE Departments MODIFY email VARCHAR(150);
