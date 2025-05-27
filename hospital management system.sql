@@ -54,10 +54,10 @@ create table department(
     Phone_no varchar(20)
 );
 
-insert into department values("Surgical department", "123456789");
-insert into department values("Nursing department", "123456789");
-insert into department values("Operation theator complex (OT)", "123456789");
-insert into department values("Paramedical department", "123456789");
+insert into department values("Surgical department", "8524682462");
+insert into department values("Nursing department", "7246415884");
+insert into department values("Operation theator complex (OT)", "9945021024");
+insert into department values("Paramedical department", "7482642520");
 select * from department;
 
 -- Employee information table
@@ -70,8 +70,8 @@ create table EMP_INFO(
     Aadhar_Number varchar(20)
 );
 
-insert into EMP_INFO values("Doctors1", "30", "123456789", "50000", "gr@gmail.com", "123456789101");
-insert into EMP_INFO values("Doctors2", "30", "123456789", "50000", "gr@gmail.com", "123456789101");
+insert into EMP_INFO values("Dr Ravi", "30", "9851252010", "50000", "drravi42@gmail.com", "378915752469");
+insert into EMP_INFO values("Dr Harshaputra", "45", "8267349855", "150000", "drharsha85@gmail.com", "384265248842");
 select * from EMP_INFO;
 
 -- Ambulance table
@@ -83,5 +83,5 @@ create table Ambulance(
     Location varchar(20)
 );
 
-insert into Ambulance values("Parvathi", "Female", "Audi", "Available", "Kolkata");
+insert into Ambulance values("Anjaneya", "Male", "Maruthi Suzuki", "Available", "Rajajinagar");
 select * from Ambulance;
