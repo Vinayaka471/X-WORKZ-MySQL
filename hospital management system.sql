@@ -58,6 +58,9 @@ insert into department values("Surgical department", "8524682462");
 insert into department values("Nursing department", "7246415884");
 insert into department values("Operation theator complex (OT)", "9945021024");
 insert into department values("Paramedical department", "7482642520");
+insert into department values("Outpatient Department (OPD)", "9942365210");
+insert into department values("Cardiology", "6248256872");
+insert into department values("ICU (Intensive Care Unit)", "8425671258");
 select * from department;
 
 -- Employee information table
@@ -72,6 +75,8 @@ create table EMP_INFO(
 
 insert into EMP_INFO values("Dr Ravi", "30", "9851252010", "50000", "drravi42@gmail.com", "378915752469");
 insert into EMP_INFO values("Dr Harshaputra", "45", "8267349855", "150000", "drharsha85@gmail.com", "384265248842");
+insert into EMP_INFO values("Dr Irfan", "40", "7824985249", "200000", "drirfan55@gmail.com", "571243897452");
+insert into EMP_INFO values("Dr Joseph", "27", "8542378156", "50000", "drjoseph71@gmail.com", "426972312531");
 select * from EMP_INFO;
 
 -- Ambulance table
@@ -84,4 +89,8 @@ create table Ambulance(
 );
 
 insert into Ambulance values("Anjaneya", "Male", "Maruthi Suzuki", "Available", "Rajajinagar");
+insert into Ambulance values("Varuna", "Male", "Zen", "Available", "Yashwanthpura");
+insert into Ambulance values("Venu Gopal", "Male", "Force Traveller", "Unavailable", "Yalahanka");
+insert into Ambulance values("Rihan", "Male", "Eco", "Available", "Jalahalli");
+insert into Ambulance values("Abhishek", "Male", "Bolero", "Unavailable", "RR Nagara");
 select * from Ambulance;
