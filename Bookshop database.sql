@@ -1,0 +1,10 @@
+create database Bookshop;
+use Bookshop;
+create table books(id int,name varchar(25),cost bigint,color varchar(25));
+insert into books values(1,'Kannada',100,'Red');
+insert into books values(2,'English',80,'White');
+insert into books values(3,'Hindi',50,'Green');
+insert into books values(4,'Science',140,'Blue');
+insert into books values(5,'Maths',150,'Yellow');
+insert into books values(6,'Social Science',160,'Cream');
+select*from books;
