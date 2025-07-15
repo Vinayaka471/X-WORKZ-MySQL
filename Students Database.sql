@@ -1,0 +1,11 @@
+create table students(id int, name varchar(25),age int);
+insert into students values(1,'Vinayaka',22);
+insert into students values(2,'Surya',35);
+insert into students values(3,'Manoj',46);
+insert into students values(4,'Karthik',46);
+insert into students values(5,'Prathik',52);
+insert into students values(6,'Charan',29);
+select*from students;
+UPDATE students set age = 26 where id=4;
+delete from students where id=5;
+insert into students values(5,'Pramodh',36);
