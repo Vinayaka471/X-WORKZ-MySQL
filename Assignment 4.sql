@@ -244,3 +244,4 @@ INSERT INTO Tasks VALUES
 (30, 30, 30, 30, 30, 'Field Panel Sync', 'Test solar sync algorithms', '2021-12-01 09:00:00', '2022-01-01 17:00:00', 'Completed');
 
 select * from Companies;
+
