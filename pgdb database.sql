@@ -20,3 +20,26 @@ insert into users(username, userpassword) values ('Student1','{noop}student123')
 insert into user_role_mapping(user_id, role_id) values (1,1);
 insert into user_role_mapping(user_id, role_id) values (2,2);
 DROP DATABASE IF EXISTS pgdb;
+
+create database pgdb;
+use pgdb;
+
+create table users(user_id int primary key, user_email varchar(100) unique not null, user_first_name varchar(50) not null, user_last_name varchar(50) not null, user_password varchar(255) not null, user_last_login timestamp, rowstate varchar(10) check(rowstate in('ACTIVE','INACTIVE')) default 'ACTIVE', created_at timestamp default current_timestamp, updated_at timestamp default current_timestamp);
+
+create table roles(role_id int primary key, role_name varchar(50) unique not null, role_description varchar(255));
+
+create table user_role_mapping(user_role_id int primary key, user_id int not null, role_id int not null, foreign key (user_id) references users(user_id) on delete cascade, foreign key (role_id) references roles(role_id) on delete cascade);
+
+create table subject(subject_id int primary key, subject_name varchar(100) not null, subject_code varchar(20) unique not null);
+
+
+insert into roles (role_id, role_name, role_description) values(1,'Faculty','Faculty memeber of the institution'),(2,'Student','Enrolled student');
+
+insert into users(user_id,user_email,user_first_name,user_last_name,user_password,rowstate) values(101, 'faculty1@example.com','Jhon', 'Doe', ' $2a$10$kkTRKIQQuC9nV..GxQmkmOrj.UWg7IyUmhidRFpF0bJInmA4n.X.O', 'ACTIVE'), (102, 'student1@example.com','Alice', 'Smith', ' $2a$10$kkTRKIQQuC9nV..GxQmkmOrj.UWg7IyUmhidRFpF0bJInmA4n.X.O', 'ACTIVE');
+
+insert into user_role_mapping(user_role_id, user_id, role_id) values(201, 101, 1), (202, 102, 2);
+
+insert into subject (subject_id, subject_name, subject_code) values(301, 'Mathematics', 'MATH101'), (302, 'Computer Science', 'CS101');
+
+insert into user_subject_mapping (user_subject_id, user_id, subject_id) values (401, 101, 301), (402, 102, 302);
+
