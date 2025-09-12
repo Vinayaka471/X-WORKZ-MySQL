@@ -36,7 +36,7 @@ create table user_subject_mapping (user_subject_id int primary key, user_id int 
 
 insert into roles (role_id, role_name, role_description) values(1,'Faculty','Faculty memeber of the institution'),(2,'Student','Enrolled student');
 
-insert into users(user_id,user_email,user_first_name,user_last_name,user_password,rowstate) values(101, 'faculty1@example.com','Jhon', 'Doe', ' $2a$10$kkTRKIQQuC9nV..GxQmkmOrj.UWg7IyUmhidRFpF0bJInmA4n.X.O', 'ACTIVE'), (102, 'student1@example.com','Alice', 'Smith', ' $2a$10$kkTRKIQQuC9nV..GxQmkmOrj.UWg7IyUmhidRFpF0bJInmA4n.X.O', 'ACTIVE');
+insert into users(user_id,user_email,user_first_name,user_last_name,user_password,rowstate) values(101, 'faculty1@example.com','Jhon', 'Doe', '$2a$10$kkTRKIQQuC9nV..GxQmkmOrj.UWg7IyUmhidRFpF0bJInmA4n.X.O', 'ACTIVE'), (102, 'student1@example.com','Alice', 'Smith', '$2a$10$kkTRKIQQuC9nV..GxQmkmOrj.UWg7IyUmhidRFpF0bJInmA4n.X.O', 'ACTIVE');
 
 insert into user_roles_mapping(user_role_id, user_id, role_id) values(201, 101, 1), (202, 102, 2);
 
