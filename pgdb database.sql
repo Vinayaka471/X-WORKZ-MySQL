@@ -72,6 +72,32 @@ values
 
 
 
+create table student_subject_mapping(student_subject_mapping_id int primary key, student_id int not null, subject_id int not null, foreign key (student_id) references users(user_id) on delete cascade, foreign key (subject_id) references subject(subject_id) on delete cascade);
+
+create table attendance (
+    attendance_id int primary key,
+    student_subject_mapping_id int not null,
+    date date not null,
+    time time not null,
+    attendance enum('PRESENT','ABSENT') not null,
+    created_at timestamp default current_timestamp,
+    updated_at timestamp default current_timestamp on update current_timestamp,
+    foreign key (student_subject_mapping_id) references student_subject_mapping(student_subject_mapping_id) on delete cascade
+);
+
+
+-- Insert student-subject mappings
+insert into student_subject_mapping (student_subject_mapping_id, student_id, subject_id) 
+values (1001, 102, 301), -- Student Alice -> Math
+       (1002, 102, 302); -- Student Alice -> CS
+
+-- Insert attendance
+insert into attendance (attendance_id, student_subject_mapping_id, date, time, attendance) 
+values (2001, 1001, '2025-09-19', '09:30:00', 'PRESENT'),
+       (2002, 1001, '2025-09-20', '09:30:00', 'ABSENT'),
+       (2003, 1002, '2025-09-19', '11:00:00', 'PRESENT');
+
+
 select * from users;
 select * from roles;
 select * from user_roles_mapping;
@@ -81,6 +107,8 @@ select * from mcq;
 select * from mcq_test;
 select * from test_question_mapping;
 select * from test_response;
+select * from student_subject_mapping;
+select * from attendance;
 
 
 
