@@ -77,8 +77,8 @@ create table student_subject_mapping(student_subject_mapping_id int primary key,
 create table attendance (
     attendance_id int primary key,
     student_subject_mapping_id int not null,
-    date date not null,
-    time time not null,
+    date date not null,login
+    time  not null,
     attendance enum('PRESENT','ABSENT') not null,
     created_at timestamp default current_timestamp,
     updated_at timestamp default current_timestamp on update current_timestamp,
